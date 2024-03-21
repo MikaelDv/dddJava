@@ -6,7 +6,9 @@ public class CriarLivros {
         //Instanciando um objeto => criar o objeto na memória
         //tipoObjeto nomeObjeto = operadorInstanciação construtor;
         Scanner leitor = new Scanner(System.in);
-        Livro favorito = new Livro();
+        Scanner leitorNum = new Scanner(System.in);
+        Livro favorito = new Livro("Sr. dos Anéis");
+        Editora editora = new Editora("Harper");
         System.out.println("Qual é o seu nome?");
         favorito.leitor = leitor.nextLine();
         System.out.println("Qual é o seu livro favorito " + favorito.leitor + "?");
@@ -20,8 +22,8 @@ public class CriarLivros {
         System.out.println("Qual é o tipo de capa desse livro?");
         favorito.tipoCapa = leitor.nextLine();
         System.out.println("Quanto custa esse livro?");
-        favorito.valor = leitor.nextDouble();
+        favorito.valor = leitorNum.nextDouble();
 
-        System.out.println("O livro favorito de " + favorito.leitor + " é: " + favorito.titulo + "!");
+        System.out.println(favorito.exibirDados());
     }
 }
