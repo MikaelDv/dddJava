@@ -1,29 +1,35 @@
-import java.util.Scanner;
-
 //Classe de execução => main
 public class CriarLivros {
     public static void main(String[] args) {
         //Instanciando um objeto => criar o objeto na memória
-        //tipoObjeto nomeObjeto = operadorInstanciação construtor;
-        Scanner leitor = new Scanner(System.in);
-        Scanner leitorNum = new Scanner(System.in);
-        Livro favorito = new Livro("Sr. dos Anéis");
-        Editora editora = new Editora("Harper");
-        System.out.println("Qual é o seu nome?");
-        favorito.leitor = leitor.nextLine();
-        System.out.println("Qual é o seu livro favorito " + favorito.leitor + "?");
-        favorito.titulo = leitor.nextLine();
-        System.out.println("Quem é o autor desse livro?");
-        favorito.autor = leitor.nextLine();
-        System.out.println("Qual é a editora que publicou esse livro?");
-        favorito.editora = leitor.nextLine();
-        System.out.println("Faça um breve resumo desse livro:");
-        favorito.resumo = leitor.nextLine();
-        System.out.println("Qual é o tipo de capa desse livro?");
-        favorito.tipoCapa = leitor.nextLine();
-        System.out.println("Quanto custa esse livro?");
-        favorito.valor = leitorNum.nextDouble();
+        // tipoObjeto nomeObjeto = operadorInstanciação  construtor;
+        //   Livro      favorito =       new               Livro();
+        //Instanciar editora
+        Editora editora = new Editora();
+        editora.nome = "Harper Collins";
+        editora.representante = "Joao";
+                Livro favorito = new Livro("O Hobbit");
+        //favorito.titulo = "O Hobbit";
+        favorito.setAutor("J. R. R. Talkien");
+        favorito.setValor(37.27);
+        favorito.setEditora(editora);
+        favorito.setResumo("Bilbo era um dos ...");
+        favorito.setTipoCapa(TipoCapaEnum.COMUM);
 
+        System.out.println("Meu livro favorito é:" +
+        favorito.getTitulo() + "\nSeu autor é: " + favorito.getAutor() +
+        " preço: R$ " + favorito.getValor());
         System.out.println(favorito.exibirDados());
+
+        Livro meuLivro = new Livro("UML 2.0",5);
+        //meuLivro.titulo = "UML 2.0";
+        meuLivro.setValor(58.98);
+        meuLivro.setEditora(editora);
+        //System.out.println("\n\nTitulo: " + meuLivro.titulo);
+        //System.out.println("Autor: " + meuLivro.autor);
+        System.out.println(meuLivro.exibirDados());
+
+        LivroDigital livroDigital = new LivroDigital();
+        //livroDigital.
     }
 }
