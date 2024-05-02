@@ -1,3 +1,7 @@
+package models;
+
+import models.Editora;
+
 public abstract class Livro {
 
     //---ATRIBUTOS ---///
@@ -8,8 +12,6 @@ public abstract class Livro {
     private Editora editora;
     private int paginas;
     private String resumo;
-    private TipoCapaEnum tipoCapa;
-
 
     // --- MÉTODOS ---
     public String exibirDados(){
@@ -20,16 +22,13 @@ public abstract class Livro {
                 "\nPreço: R$ " + this.valor +
                 "\nPáginas: " + this.paginas +
                 "\nAutor: " + this.autor +
-                "\nEditora:" + this.editora.nome +
+                "\nmodels.Editora:" + this.editora.nome +
                 "\n---------------" ;               ;
         return dados;
     }
 
-    public double aplicarDesconto(){
-        if(tipoCapa.equals(TipoCapaEnum.COMUM))
-            return valor * 0.95;
-        return 0;
-    }
+    public abstract double aplicarDesconto();
+
     public Livro(String titulo){
         this.titulo = titulo;
     }
@@ -41,15 +40,14 @@ public abstract class Livro {
     }
     public Livro(String titulo, String autor,
                  double valor, Editora editora,
-                 int paginas, String resumo,
-                 TipoCapaEnum tipoCapa) {
+                 int paginas, String resumo) {
         this.titulo = titulo;
         this.autor = autor;
         this.valor = valor;
         this.editora = editora;
         this.paginas = paginas;
         this.resumo = resumo;
-        this.tipoCapa = tipoCapa;
+
     }
 
     public String getTitulo() {
@@ -103,11 +101,5 @@ public abstract class Livro {
         this.resumo = resumo;
     }
 
-    public TipoCapaEnum getTipoCapa() {
-        return tipoCapa;
-    }
 
-    public void setTipoCapa(TipoCapaEnum tipoCapa) {
-        this.tipoCapa = tipoCapa;
-    }
 }

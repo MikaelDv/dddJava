@@ -1,14 +1,22 @@
+package tests;
+
+import models.Editora;
+import models.LivroDigital;
+import models.LivroFisico;
+import models.RegistroVendas;
+import models.enums.TipoCapaEnum;
+
 //Classe de execução => main
 public class CriarLivros {
     public static void main(String[] args) {
         //Instanciando um objeto => criar o objeto na memória
         // tipoObjeto nomeObjeto = operadorInstanciação  construtor;
-        //   Livro      favorito =       new               Livro();
+        //   models.Livro      favorito =       new               models.Livro();
         //Instanciar editora
         Editora editora = new Editora();
         editora.nome = "Harper Collins";
         editora.representante = "Joao";
-        Livro favorito = new LivroFisico("O Hobbit");
+        LivroFisico favorito = new LivroFisico("O Hobbit");
         //favorito.titulo = "O Hobbit";
         favorito.setAutor("J. R. R. Talkien");
         favorito.setValor(37.27);
@@ -21,7 +29,7 @@ public class CriarLivros {
         " preço: R$ " + favorito.getValor());
         System.out.println(favorito.exibirDados());
 
-        Livro meuLivro = new LivroFisico("UML 2.0",5);
+        LivroFisico meuLivro = new LivroFisico("UML 2.0",5.0);
         //meuLivro.titulo = "UML 2.0";
         meuLivro.setValor(58.98);
         meuLivro.setEditora(editora);
@@ -29,7 +37,14 @@ public class CriarLivros {
         //System.out.println("Autor: " + meuLivro.autor);
         System.out.println(meuLivro.exibirDados());
 
-        LivroDigital livroDigital = new LivroDigital();
+        LivroDigital livroDigital = new LivroDigital("Teste");
+        livroDigital.setTitulo("Senhor dos anéis");
         //livroDigital.
+
+        RegistroVendas carrinho = new RegistroVendas();
+        carrinho.adicionar(favorito);
+        carrinho.adicionar(meuLivro);
+        carrinho.adicionar(livroDigital);
+
     }
 }
